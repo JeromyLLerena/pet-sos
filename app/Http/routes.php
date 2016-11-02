@@ -12,5 +12,25 @@
 */
 
 $app->get('/', function () use ($app) {
-    return $app->version();
+	return $app->version();
+});
+
+$app->group(['prefix' => 'api', 'namespace' => 'App\Http\Controllers\Api'], function() use ($app){
+	$app->group(['prefix' => 'api/v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() use ($app){
+		$app->group(['prefix' => 'api/v1/districts', 'namespace' => 'App\Http\Controllers\Api\V1\District'], function() use ($app){
+			$app->get('/', ['uses' => 'DistrictController@all']);
+		});
+		$app->group(['prefix' => 'api/v1/animals', 'namespace' => 'App\Http\Controllers\Api\V1\Animal'], function() use ($app){
+			$app->get('/', ['uses' => 'AnimalController@all']);
+		});
+		$app->group(['prefix' => 'api/v1/races', 'namespace' => 'App\Http\Controllers\Api\V1\Race'], function() use ($app){
+			$app->get('/', ['uses' => 'RaceController@all']);
+		});
+		$app->group(['prefix' => 'api/v1/post_types', 'namespace' => 'App\Http\Controllers\Api\V1\PostType'], function() use ($app){
+			$app->get('/', ['uses' => 'PostTypeController@all']);
+		});
+		$app->group(['prefix' => 'api/v1/user_types', 'namespace' => 'App\Http\Controllers\Api\V1\UserType'], function() use ($app){
+			$app->get('/', ['uses' => 'UserTypeController@all']);
+		});
+	});
 });
