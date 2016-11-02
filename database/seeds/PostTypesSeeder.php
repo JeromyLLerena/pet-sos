@@ -12,9 +12,9 @@ class PostTypesSeeder extends Seeder
 	public function run()
 	{
 		DB::table('post_types')->insert([
-			['id' => '1', 'name' => 'Loss'],
-			['id' => '2', 'name' => 'Event'],
-			['id' => '3', 'name' => 'Adoption'],
+			['id' => '1', 'name' => 'Pérdida'],
+			['id' => '2', 'name' => 'Evento'],
+			['id' => '3', 'name' => 'Adopción'],
 		]);
 	}
 }
