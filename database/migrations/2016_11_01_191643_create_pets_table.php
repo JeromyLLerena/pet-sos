@@ -20,8 +20,8 @@ class CreatePetsTable extends Migration
 			$table->string('photo_path')->nullable()->default(null);
 			$table->integer('height')->nullable()->default(null);
 			$table->boolean('status')->default(true);
-			$table->integer('user_id')->unsigned();
-			$table->integer('race_id')->unsigned();
+			$table->integer('user_id')->unsigned()->nullable();
+			$table->integer('race_id')->unsigned()->nullable();
 
 			$table->foreign('user_id')
 			      ->references('id')

@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
 			$table->string('email');
 			$table->boolean('status')->default(true);
 			$table->timestamps();
-			$table->integer('district_id')->unsigned();
-			$table->integer('user_type_id')->unsigned();
+			$table->integer('district_id')->unsigned()->nullable();
+			$table->integer('user_type_id')->unsigned()->nullable();
 
 			$table->foreign('district_id')
 				  ->references('id')
